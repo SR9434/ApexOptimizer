@@ -102,28 +102,28 @@ $$
 考虑 **纵坡 (Slope, $\theta$)** 和 **横坡 (Banking, $\phi$)** 对车辆受力的影响：
 
 *   **空气动力学载荷**:
-$$ F_{aero\_down} = \frac{1}{2} \rho C_l A v^2, \quad F_{drag} = \frac{1}{2} \rho C_d A v^2 $$
+    $$ F_{aero\_down} = \frac{1}{2} \rho C_l A v^2, \quad F_{drag} = \frac{1}{2} \rho C_d A v^2 $$
 
 *   **轮胎垂向载荷 ($F_z$)**:
-$$ F_z(s) = m g \cos(\theta) \cos(\phi) + F_{aero\_down} $$
+    $$ F_z(s) = m g \cos(\theta) \cos(\phi) + F_{aero\_down} $$
 
 *   **合力需求分析 (Inverse Dynamics)**:
     *   **横向力需求**:
-    $$ F_{lat\_req} = m v^2 \kappa + m g \sin(\phi) $$
+        $$ F_{lat\_req} = m v^2 \kappa + m g \sin(\phi) $$
     *   **纵向力需求**:
-    $$ F_{long\_req} = m a_{long} + F_{drag} + m g \sin(\theta) $$
+        $$ F_{long\_req} = m a_{long} + F_{drag} + m g \sin(\theta) $$
 
 ### 4. 约束条件 (Constraints)
 
 1.  **摩擦圆约束 (Kamm's Friction Circle)**:
-$$ (F_{lat\_req})^2 + (F_{long\_req})^2 \leq (\mu F_z \cdot \eta_{util})^2 $$
+    $$ (F_{lat\_req})^2 + (F_{long\_req})^2 \leq (\mu F_z \cdot \eta_{util})^2 $$
 
 2.  **动力单元特性**:
-$$ F_{long\_req} \leq F_{max\_tractive} $$
-$$ F_{long\_req} \cdot v \leq P_{max\_power} $$
+    $$ F_{long\_req} \leq F_{max\_tractive} $$
+    $$ F_{long\_req} \cdot v \leq P_{max\_power} $$
 
 3.  **几何边界**:
-$$ -w_{right}(s) + \delta \leq n(s) \leq w_{left}(s) - \delta $$
+    $$ -w_{right}(s) + \delta \leq n(s) \leq w_{left}(s) - \delta $$
 
 ## 许可证 (License)
 
