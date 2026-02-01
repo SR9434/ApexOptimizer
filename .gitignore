@@ -29,7 +29,7 @@ results/*.json
 # 忽略临时产生的图片 (如果有)
 images/*.png
 # 但是！如果你想保留某些演示图片（例如 demo.png），可以在下面加一行：
-# !images/demo.png
+!images/demo_dashboard.png
 
 # ==========================
 # 操作系统生成的文件
@@ -54,3 +54,7 @@ Thumbs.db
 # 3. 车辆文件夹同理，默认上传 json
 # cars/*
 # !cars/*.json
+
+# 忽略 Word 临时文件
+~$*.docx
+*.tmp
