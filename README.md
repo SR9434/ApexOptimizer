@@ -99,22 +99,24 @@ $$
 其中 $S_f = 1 - n \cdot \kappa_{ref}(s)$ 为空间缩放因子，$\kappa_{ref}(s)$ 为赛道中心线的几何曲率。目标函数为最小化总时间 $J = \int_{0}^{L} \frac{dt}{ds} ds$。
 
 ### 3. 3D 准静态力学平衡 (Quasi-Static Equilibrium in 3D)
-本项目引入了高精度的 3D 赛道模型，考虑**纵坡 (Slope, $\theta$)** 和 **横坡 (Banking, $\phi$)** 对车辆受力的显著影响：
+本项目引入了高精度的 3D 赛道模型，考虑 **纵坡 (Slope, $\theta$)** 和 **横坡 (Banking, $\phi$)** 对车辆受力的显著影响：
 
 *   **空气动力学载荷**:
-    $$ F_{aero\_down} = \frac{1}{2} \rho C_l A v^2, \quad F_{drag} = \frac{1}{2} \rho C_d A v^2 $$
+$$ F_{aero\_down} = \frac{1}{2} \rho C_l A v^2, \quad F_{drag} = \frac{1}{2} \rho C_d A v^2 $$
 
 *   **轮胎垂向载荷 ($F_z$)**:
-    结合重力分量与气动下压力：
-    $$ F_z(s) = m g \cos(\theta) \cos(\phi) + F_{aero\_down} $$
+结合重力分量与气动下压力：
+$$ F_z(s) = m g \cos(\theta) \cos(\phi) + F_{aero\_down} $$
 
 *   **合力需求分析 (Inverse Dynamics)**:
-    为了维持运动学状态 $\mathbf{x}$ 和输入 $\mathbf{u}$，轮胎必须产生的合力为：
+为了维持运动学状态 $x$ 和输入 $u$，轮胎必须产生的合力为：
+
     *   **横向力需求**: 离心力 + 重力横向分量
-        $$ F_{lat\_req} = m v^2 \kappa + m g \sin(\phi) $$
-        *(注: 正向 Banking 会提供向心分力，显著提高过弯极限)*
+    $$ F_{lat\_req} = m v^2 \kappa + m g \sin(\phi) $$
+    *(注: 正向 Banking 会提供向心分力，显著提高过弯极限)*
+
     *   **纵向力需求**: 惯性力 + 空气阻力 + 重力坡度分量
-        $$ F_{long\_req} = m a_{long} + F_{drag} + m g \sin(\theta) $$
+    $$ F_{long\_req} = m a_{long} + F_{drag} + m g \sin(\theta) $$
 
 ### 4. 约束条件 (Constraints)
 优化器在求解过程中严格遵守以下物理边界：
