@@ -96,34 +96,60 @@ $$
 \end{aligned}
 $$
 
-其中 $S_f = 1 - n \cdot \kappa_{ref}(s)$ 为空间缩放因子，$\kappa_{ref}(s)$ 为赛道切线曲率。目标函数为最小化总时间 $J = \int_{0}^{L} \frac{dt}{ds} ds$。
+其中 $S_f = 1 - n \cdot \kappa_{\text{ref}}(s)$ 为空间缩放因子， $\kappa_{\text{ref}}(s)$ 为赛道切线曲率。目标函数为最小化总时间 $J = \int_{0}^{L} \frac{dt}{ds} ds$。
 
 ### 3. 3D 准静态力学平衡 (Quasi-Static Equilibrium in 3D)
 考虑 **纵坡 (Slope, $\theta$)** 和 **横坡 (Banking, $\phi$)** 对车辆受力的影响：
 
-*   **空气动力学载荷**:
-    $$ F_{aero\_down} = \frac{1}{2} \rho C_l A v^2, \quad F_{drag} = \frac{1}{2} \rho C_d A v^2 $$
+**空气动力学载荷**:
 
-*   **轮胎垂向载荷 ($F_z$)**:
-    $$ F_z(s) = m g \cos(\theta) \cos(\phi) + F_{aero\_down} $$
+$$
+F_{\text{aero,down}} = \frac{1}{2} \rho C_l A v^2, \quad F_{\text{drag}} = \frac{1}{2} \rho C_d A v^2
+$$
 
-*   **合力需求分析 (Inverse Dynamics)**:
-    *   **横向力需求**:
-        $$ F_{lat\_req} = m v^2 \kappa + m g \sin(\phi) $$
-    *   **纵向力需求**:
-        $$ F_{long\_req} = m a_{long} + F_{drag} + m g \sin(\theta) $$
+**轮胎垂向载荷** ($F_z$):
+
+$$
+F_z(s) = m g \cos(\theta) \cos(\phi) + F_{\text{aero,down}}
+$$
+
+**合力需求分析 (Inverse Dynamics)**:
+
+横向力需求:
+
+$$
+F_{\text{lat,req}} = m v^2 \kappa + m g \sin(\phi)
+$$
+
+纵向力需求:
+
+$$
+F_{\text{long,req}} = m a_{\text{long}} + F_{\text{drag}} + m g \sin(\theta)
+$$
 
 ### 4. 约束条件 (Constraints)
 
-1.  **摩擦圆约束 (Kamm's Friction Circle)**:
-    $$ (F_{lat\_req})^2 + (F_{long\_req})^2 \leq (\mu F_z \cdot \eta_{util})^2 $$
+**摩擦圆约束 (Kamm's Friction Circle)**:
 
-2.  **动力单元特性**:
-    $$ F_{long\_req} \leq F_{max\_tractive} $$
-    $$ F_{long\_req} \cdot v \leq P_{max\_power} $$
+$$
+\left(F_{\text{lat,req}}\right)^2 + \left(F_{\text{long,req}}\right)^2 \leq \left(\mu F_z \cdot \eta_{\text{util}}\right)^2
+$$
 
-3.  **几何边界**:
-    $$ -w_{right}(s) + \delta \leq n(s) \leq w_{left}(s) - \delta $$
+**动力单元特性**:
+
+$$
+F_{\text{long,req}} \leq F_{\text{max,tractive}}
+$$
+
+$$
+F_{\text{long,req}} \cdot v \leq P_{\text{max,power}}
+$$
+
+**几何边界**:
+
+$$
+-w_{\text{right}}(s) + \delta \leq n(s) \leq w_{\text{left}}(s) - \delta
+$$
 
 ## 许可证 (License)
 
