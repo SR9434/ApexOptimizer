@@ -22,7 +22,7 @@ def run_simulation(config):
     precision = config['precision']
     
     print(f"\n{'='*60}")
-    print(f"  RACING LINE OPTIMIZER")
+    print(f"  RACING LINE SOLVER")
     print(f"{'='*60}")
     print(f"  Track: {os.path.basename(track_path)}")
     print(f"  Car:   {os.path.basename(car_path) if car_path else 'Default (F1 2026)'}")
@@ -82,7 +82,7 @@ def run_simulation(config):
     return track, car, result
 
 def main():
-    parser = argparse.ArgumentParser(description="Racing Line Optimizer")
+    parser = argparse.ArgumentParser(description="Racing Line Solver")
     parser.add_argument("--track", "-t", type=str, help="Path to track CSV file")
     parser.add_argument("--car", "-c", type=str, help="Path to car JSON file")
     parser.add_argument("--precision", "-p", choices=list(PRECISION_PRESETS.keys()), default='medium')

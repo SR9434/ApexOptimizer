@@ -16,7 +16,7 @@ PRECISION_PRESETS = {
 class LauncherGUI:
     def __init__(self):
         self.root = tk.Tk()
-        self.root.title("Racing Line Optimizer")
+        self.root.title("Racing Line Solver")
         self.root.geometry("600x650")
         self.root.resizable(False, False)
         
@@ -49,7 +49,7 @@ class LauncherGUI:
         self.root.geometry(f'{w}x{h}+{x}+{y}')
 
     def _build_ui(self):
-        tk.Label(self.root, text="🏎️ Racing Line Optimizer", font=("Arial", 20, "bold"), 
+        tk.Label(self.root, text="🏎️ Racing Line Solver", font=("Arial", 20, "bold"), 
                  bg=self.bg_color, fg=self.accent_color).pack(pady=(20, 5))
         
         main_frame = tk.Frame(self.root, bg=self.bg_color)
